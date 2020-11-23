@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 
     if ( argc < 2 )
     {
-	std::cout << "Usage: siv <file.siv> [color]" << std::endl << std::endl;
+	std::cout << "Usage: siv <file.siv>" << std::endl << std::endl;
 	std::cout << "Tokenize and display a color syntax highlighted display of a sieve format file" << endl;
 
 	return EX_USAGE;
