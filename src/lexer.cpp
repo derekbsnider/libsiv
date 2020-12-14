@@ -325,6 +325,16 @@ TokenBase *Program::_getToken(istream &ss)
 		    v *= 10;
 		    v += get(ss) & 0xf;
 		}
+		// support modifiers such as K, M, or G
+		if ( ss.peek() == 'K' || ss.peek() == 'M' || ss.peek() == 'G' )
+		{
+		    ostringstream oss;
+		    oss << v << (char)get(ss);
+		    word = oss.str();
+		    TokenIdent *ti = new TokenIdent(word);
+		    ti->set(v);
+		    return ti;
+                }
 		return new TokenInt(v);
 	    }
 	    if ( ch == '_' || isalnum(ch) )
